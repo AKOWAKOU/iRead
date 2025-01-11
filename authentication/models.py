@@ -128,12 +128,12 @@ class FollowersModel(models.Model):
 
     @classmethod
     def follow(cls, user, another_account):
-        obj, create = cls.objects.get_or_create(user=user)
+        obj, _create = cls.objects.get_or_create(user=user)
         obj.following.add(another_account)
 
     @classmethod
     def unfollow(cls, user, another_account):
-        obj, create = cls.objects.get_or_create(user=user)
+        obj, _create = cls.objects.get_or_create(user=user)
         obj.following.remove(another_account)
 
     def __str__(self) -> str:
